@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secuencia didáctica PDA 2: La diversidad étnica, cultural y lingüística</title>
+    
+    <!-- Tailwind CSS (Solo para Web) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fuentes Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;700;800&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- ESTILOS GENERALES (VISTA WEB) --- */
+        body { font-family: 'Inter', sans-serif; background-color: #f0f4f8; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Montserrat', sans-serif; }
+        
+        .lasalle-blue { background-color: #003057; }
+        .lasalle-blue-text { color: #003057; }
+        .lasalle-gold-text { color: #D4AF37; }
+        .bg-lasalle-gold { background-color: #D4AF37; }
+        
+        .btn-resource {
+            background: linear-gradient(90deg, #D4AF37 0%, #b89628 100%);
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(212, 175, 55, 0.3);
+        }
+        .btn-resource:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(212, 175, 55, 0.4);
+        }
+
+        .time-badge {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 6px;
+            border: 1px solid #bae6fd;
+        }
+
+        /* --- CONFIGURACIÓN DE IMPRESIÓN (CSS AVANZADO) --- */
+        
+        /* 1. Ocultamos el layout de impresión en la pantalla normal */
+        #print-layout { display: none; }
+
+        /* 2. Reglas solo para cuando se imprime */
+        @media print {
+            /* Ocultar TODO lo que es de la vista web interactiva */
+            #web-layout, .no-print, header, footer, .btn-resource { 
+                display: none !important; 
+            }
+
+            /* Mostrar y dar formato al layout de impresión */
+            #print-layout { 
+                display: block !important; 
+                font-family: 'Roboto Slab', serif; /* Fuente serif para mejor lectura en papel */
+                font-size: 10pt;
+                color: black;
+                background: white;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            /* Estilos de tabla para impresión */
+            table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+            th, td { border: 1px solid #444; padding: 6px; vertical-align: top; text-align: left; }
+            th { background-color: #f0f0f0 !important; -webkit-print-color-adjust: exact; font-weight: bold; text-align: center; }
+            
+            /* Encabezados de sección para impresión */
+            .print-section-title {
+                background-color: #003057 !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                padding: 5px 10px;
+                font-weight: bold;
+                margin-top: 15px;
+                font-family: sans-serif;
+                text-transform: uppercase;
+                font-size: 11pt;
+            }
+
+            .print-header-title h1 { font-size: 12pt; margin: 0; color: #003057; text-transform: uppercase; line-height: 1.2; }
+            .print-header-title h2 { font-size: 10pt; margin: 2px 0; font-weight: bold; }
+            .print-header-title p { margin: 0; font-size: 9pt; }
+
+            /* Evitar cortes de página feos en las filas */
+            tr { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
+
+    <!-- ======================================================= -->
+    <!--  VISTA 1: LAYOUT WEB INTERACTIVO (LO QUE VES EN PANTALLA) -->
+    <!-- ======================================================= -->
+    <div id="web-layout">
+        
+        <!-- Encabezado Web -->
+        <header class="lasalle-blue text-white shadow-xl sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-white p-1 rounded-full flex-shrink-0">
+                        <svg class="w-8 h-8 text-[#003057]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <div>
+                        <h1 class="text-base md:text-lg font-bold font-heading tracking-wide uppercase leading-tight">Secuencia didáctica PDA 2: La diversidad étnica, cultural y lingüística de México a favor de una sociedad intercultural</h1>
+                        <p class="text-xs text-yellow-400 font-bold mt-1">Nueva Escuela Mexicana</p>
+                        <p class="text-xs text-blue-200">Campo formativo: Lenguajes | Materia: Español II | Plan sintético fase 6</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-4 text-right flex-shrink-0">
+                    <div>
+                        <p class="text-sm font-bold lasalle-gold-text">RedPEA UNESCO</p>
+                        <p class="text-[10px] text-white uppercase tracking-wider">Escuela Asociada</p>
+                    </div>
+                    <i data-lucide="globe-2" class="w-6 h-6 text-blue-200"></i>
+                </div>
+            </div>
+        </header>
+
+        <main class="max-w-7xl mx-auto px-4 py-8">
+            
+            <!-- Botón de Imprimir -->
+            <div class="flex justify-end mb-6">
+                <button onclick="window.print()" class="bg-[#D4AF37] hover:bg-yellow-600 text-[#003057] font-bold py-2 px-6 rounded-full shadow-lg flex items-center transition transform hover:-translate-y-1">
+                    <i data-lucide="printer" class="mr-2"></i> IMPRIMIR FORMATO DE PLANEACIÓN
+                </button>
+            </div>
+
+            <!-- Dashboard Contexto (Web) -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8 border-t-4 border-yellow-500">
+                <h2 class="text-xl font-bold text-[#003057] mb-4 flex items-center">
+                    <i data-lucide="layout-dashboard" class="mr-2"></i> Contextualización Curricular (NEM 2022)
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div class="col-span-1 md:col-span-2 bg-blue-50 p-4 rounded-lg border border-blue-100">
+                        <span class="block text-xs font-bold text-blue-800 uppercase mb-1">PDA (Proceso de Desarrollo de Aprendizaje)</span>
+                        <p class="font-semibold text-gray-800 text-sm md:text-base leading-relaxed">
+                            "Compara y contrasta textos sobre las tensiones y conflictos en las sociedades contemporáneas y manifiesta, de manera oral o escrita, la necesidad de practicar la comunicación asertiva."
+                        </p>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-100">
+                        <span class="block text-xs font-bold text-yellow-800 uppercase mb-1">Metodología</span>
+                        <p class="font-bold text-gray-800 text-sm">ABP (Aprendizaje Basado en Proyectos) + Rutinas de Pensamiento Visible.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-gray-100 pt-4">
+                    <div>
+                        <h3 class="text-sm font-bold text-[#003057] flex items-center mb-2"><i data-lucide="compass" class="w-4 h-4 mr-2"></i> Ejes Articuladores</h3>
+                        <ul class="text-xs text-gray-600 space-y-1 ml-6 list-disc">
+                            <li><strong>Interculturalidad Crítica:</strong> Reconocimiento de conflictos en la diversidad.</li>
+                            <li><strong>Pensamiento Crítico:</strong> Distinción entre doxa y episteme.</li>
+                            <li><strong>Apropiación de las culturas</strong> a través de la lectura y la escritura.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-[#003057] flex items-center mb-2"><i data-lucide="target" class="w-4 h-4 mr-2"></i> Finalidades del Campo</h3>
+                        <ul class="text-xs text-gray-600 space-y-1 ml-6 list-disc">
+                            <li>La expresión y la comunicación de sus formas de ser.</li>
+                            <li>La apropiación y el progreso de formas discursivas (argumentación).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Identidad y Vinculación (Web) -->
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                <div class="bg-gradient-to-br from-[#003057] to-[#004a87] rounded-xl p-6 text-white shadow-lg relative overflow-hidden">
+                    <h3 class="font-bold text-lg mb-4 flex items-center border-b border-blue-400 pb-2"><i data-lucide="heart-handshake" class="mr-2"></i> Identidad y Perfil de Egreso</h3>
+                    <div class="space-y-4 relative z-10">
+                        <div>
+                            <span class="text-xs font-bold text-yellow-400 uppercase tracking-wider">Valor Central</span>
+                            <p class="text-sm font-medium mt-1">Fraternidad y Justicia: "Educar para la sensibilidad ante las nuevas pobrezas".</p>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-yellow-400 uppercase tracking-wider">Perfil de Egreso</span>
+                            <ul class="text-xs space-y-1 mt-1 opacity-90">
+                                <li>• Comunicador Asertivo.</li>
+                                <li>• Ciudadano Comprometido.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm relative">
+                    <h3 class="font-bold text-lg mb-4 text-blue-600 flex items-center border-b border-gray-100 pb-2"><i data-lucide="globe" class="mr-2"></i> UNESCO RedPEA</h3>
+                    <p class="text-sm leading-relaxed text-gray-600 mb-4"><strong>Argumentación Global:</strong> ODS 10 (Reducción de Desigualdades) y ODS 16 (Paz y Justicia). Ciudadanía Global.</p>
+                    <div class="flex space-x-3">
+                        <div class="bg-pink-600 text-white px-3 py-1 rounded text-xs font-bold shadow-sm">ODS 10</div>
+                        <div class="bg-blue-700 text-white px-3 py-1 rounded text-xs font-bold shadow-sm">ODS 16</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secuencia Didáctica Web -->
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 border-l-8 border-[#003057] pl-4">Secuencia Didáctica Argumentada (40 min)</h2>
+
+            <!-- FASE 1 Web -->
+            <div class="mb-6 rounded-xl overflow-hidden shadow-md bg-white border border-gray-100">
+                <div class="bg-gray-50 p-4 border-b border-gray-200 flex justify-between items-center cursor-pointer hover:bg-gray-100 transition" onclick="toggleDetails('fase1')">
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800">FASE 1: Detonante y Fundamentos</h3>
+                        <p class="text-xs text-gray-500 uppercase tracking-wide">Sesiones 1-4</p>
+                    </div>
+                    <button class="bg-blue-100 p-2 rounded-full text-[#003057]"><i data-lucide="chevron-down"></i></button>
+                </div>
+                <div id="fase1" class="p-6 hidden">
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 text-sm text-gray-700"><strong>Justificación:</strong> Rutinas de Pensamiento Visible para pasar de la doxa a la episteme.</div>
+                    
+                    <!-- S1 Web -->
+                    <div class="border-b border-gray-200 pb-6 mb-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="font-bold text-[#003057] text-lg">SESIÓN 1: La Verdad Poliédrica</h4>
+                            <a href="https://gemini.google.com/share/c2d9706a05dc" target="_blank" class="btn-resource inline-flex items-center px-4 py-2 text-xs font-bold uppercase rounded-md"><i data-lucide="external-link" class="w-4 h-4 mr-2"></i> Recurso</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg space-y-3 text-sm text-gray-800">
+                            <p><span class="time-badge">5 min</span> <strong>INICIO:</strong> Proyección video "Migración en MTY". Pregunta detonante. Afirmación central.</p>
+                            <p><span class="time-badge">25 min</span> <strong>DESARROLLO:</strong> Rutina "Verdad ¿Para Quién?". Discusión y Tabla de perspectivas.</p>
+                            <p><span class="time-badge">10 min</span> <strong>CIERRE:</strong> Reflexión escrita y tarea.</p>
+                        </div>
+                    </div>
+                    <!-- S2, S3, S4... (Contenido resumido para vista web, detallado en imprimir) -->
+                    <p class="text-center text-gray-400 text-sm italic">...Las demás sesiones están detalladas en la versión de impresión...</p>
+                </div>
+            </div>
+
+            <!-- FASE 2 Web -->
+            <div class="mb-6 rounded-xl overflow-hidden shadow-md bg-white border border-gray-100">
+                <div class="bg-gray-50 p-4 border-b border-gray-200 flex justify-between items-center cursor-pointer hover:bg-gray-100 transition" onclick="toggleDetails('fase2')">
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800">FASE 2: Argumentación y Preparación</h3>
+                        <p class="text-xs text-gray-500 uppercase tracking-wide">Sesiones 5-7</p>
+                    </div>
+                    <button class="bg-yellow-100 p-2 rounded-full text-yellow-700"><i data-lucide="chevron-down"></i></button>
+                </div>
+                <div id="fase2" class="p-6 hidden">
+                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 text-sm text-gray-700 flex justify-between items-center">
+                        <strong>Justificación:</strong> Andamiaje Vygotskyano para la argumentación.
+                        <a href="https://gemini.google.com/share/d6579edf3895" target="_blank" class="btn-resource inline-flex items-center px-4 py-2 text-xs font-bold uppercase rounded-md"><i data-lucide="layers" class="w-4 h-4 mr-2"></i> Recurso</a>
+                    </div>
+                    <p class="text-center text-gray-400 text-sm italic">...Detalle de sesiones 5, 6 y 7 disponible al imprimir...</p>
+                </div>
+            </div>
+
+            <!-- FASE 3 Web -->
+            <div class="mb-6 rounded-xl overflow-hidden shadow-md bg-white border border-gray-100">
+                <div class="bg-gray-50 p-4 border-b border-gray-200 flex justify-between items-center cursor-pointer hover:bg-gray-100 transition" onclick="toggleDetails('fase3')">
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800">FASE 3: Ejecución y Evaluación</h3>
+                        <p class="text-xs text-gray-500 uppercase tracking-wide">Sesiones 8-10</p>
+                    </div>
+                    <button class="bg-green-100 p-2 rounded-full text-green-700"><i data-lucide="chevron-down"></i></button>
+                </div>
+                <div id="fase3" class="p-6 hidden">
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6 text-sm text-gray-700 flex justify-between items-center">
+                        <strong>Justificación:</strong> Evaluación Sumativa y Formativa simultánea.
+                        <a href="https://gemini.google.com/share/715bb6660bc0" target="_blank" class="btn-resource inline-flex items-center px-4 py-2 text-xs font-bold uppercase rounded-md"><i data-lucide="users" class="w-4 h-4 mr-2"></i> Recurso</a>
+                    </div>
+                    <p class="text-center text-gray-400 text-sm italic">...Detalle de sesiones 8, 9 y 10 disponible al imprimir...</p>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="lasalle-blue text-white mt-12 py-8">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <p class="font-bold mb-2">Docencia Lasallista - Secundaria Fase 6</p>
+                <div class="mt-4 flex justify-center space-x-4">
+                    <button onclick="window.print()" class="bg-[#D4AF37] hover:bg-yellow-600 text-[#003057] px-4 py-2 rounded-lg font-bold text-sm transition flex items-center shadow-lg">
+                        <i data-lucide="printer" class="mr-2 w-4 h-4"></i> IMPRIMIR FORMATO DE PLANEACIÓN
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ======================================================= -->
+    <!--  VISTA 2: LAYOUT DE IMPRESIÓN (TABULAR SIMPLIFICADO)  -->
+    <!-- ======================================================= -->
+    <div id="print-layout">
+        
+        <!-- Encabezado de Impresión -->
+        <table style="border: none; margin-bottom: 20px;">
+            <tr style="border: none;">
+                <td style="border: none; width: 60px;">
+                    <svg width="50" height="50" viewBox="0 0 24 24" fill="#003057"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </td>
+                <td style="border: none; text-align: center;" class="print-header-title">
+                    <h1>Secuencia didáctica PDA 2: La diversidad étnica, cultural y lingüística de México a favor de una sociedad intercultural</h1>
+                    <h2>Nueva Escuela Mexicana</h2>
+                    <p>Campo formativo: Lenguajes | Materia: Español II | Plan sintético fase 6</p>
+                </td>
+                <td style="border: none; width: 60px; text-align: right; font-size: 9pt; font-weight: bold;">
+                    RedPEA<br>UNESCO
+                </td>
+            </tr>
+        </table>
+
+        <!-- I. Contexto -->
+        <div class="print-section-title">I. MARCO CURRICULAR Y VINCULACIÓN</div>
+        <table>
+            <tr>
+                <th width="15%">PDA</th>
+                <td colspan="3">Compara y contrasta textos sobre tensiones y conflictos contemporáneos y manifiesta la necesidad de comunicación asertiva.</td>
+            </tr>
+            <tr>
+                <th width="15%">Metodología</th>
+                <td width="35%">ABP + Rutinas de Pensamiento.</td>
+                <th width="15%">Temporalidad</th>
+                <td width="35%">10 Sesiones (40 min c/u).</td>
+            </tr>
+            <tr>
+                <th>Ejes Articuladores</th>
+                <td>Interculturalidad Crítica, Pensamiento Crítico.</td>
+                <th>Identidad</th>
+                <td>Fraternidad y Justicia (La Salle) | ODS 10 y 16 (UNESCO).</td>
+            </tr>
+        </table>
+
+        <!-- II. Secuencia Didáctica -->
+        <div class="print-section-title">II. SECUENCIA DIDÁCTICA DETALLADA</div>
+
+        <!-- FASE 1 PRINT -->
+        <div style="background-color:#eee; padding:5px; font-weight:bold; border:1px solid #000; margin-top:10px;">FASE 1: DETONANTE Y FUNDAMENTOS (Exploración)</div>
+        <table>
+            <thead>
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="75%">Desarrollo de la Sesión (Minuto a Minuto)</th>
+                    <th width="20%">Recursos/Eval</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- SESIÓN 1 -->
+                <tr>
+                    <td align="center"><strong>1</strong></td>
+                    <td>
+                        <strong>Objetivo:</strong> Reconocer perspectivas en conflictos.<br>
+                        <strong>INICIO (5 min):</strong> El docente da la bienvenida y proyecta el video sobre la migración en Monterrey. Pregunta detonante rápida: <em>"¿Quiénes ganan y quiénes pierden con este fenómeno?"</em>. Se escribe la <strong>AFIRMACIÓN CENTRAL</strong> en el pizarrón: "La llegada constante de migrantes a Monterrey trae más beneficios que problemas a nuestra ciudad...".<br>
+                        <strong>DESARROLLO (25 min) - Rutina "Verdad ¿Para Quién?":</strong><br>
+                        1. <strong>Discutir:</strong> En plenaria, se analiza la situación. ¿Quién haría esa afirmación? ¿Qué está en juego?<br>
+                        2. <strong>Lluvia de Ideas:</strong> Lista de involucrados (Migrantes, Gobierno, Vecinos, Empresarios).<br>
+                        3. <strong>Tabla "Verdad ¿Para Quién?":</strong> En su cuaderno, dibujan una tabla y seleccionan 3 perspectivas distintas.<br>
+                        <strong>CIERRE (10 min):</strong> Reflexión individual escrita: <em>"¿Cómo cambia el conflicto de la migración dependiendo de quién cuenta la historia?"</em>. Tarea: Traer noticia impresa.
+                    </td>
+                    <td>Video, Cuaderno.</td>
+                </tr>
+                <!-- SESIÓN 2 -->
+                <tr>
+                    <td align="center"><strong>2</strong></td>
+                    <td>
+                        <strong>Objetivo:</strong> Distinguir Hechos vs. Opiniones.<br>
+                        <strong>INICIO (5 min):</strong> Lluvia de palabras con carga emocional distinta (ej. "Migrante" vs. "Ilegal").<br>
+                        <strong>DESARROLLO (25 min):</strong> Los alumnos sacan su noticia impresa.<br>
+                        • Utilizan dos colores: <strong>Azul para HECHOS</strong> (datos verificables) y <strong>Rojo para OPINIONES</strong> (adjetivos, juicios).<br>
+                        • Identifican si el texto busca informar o persuadir.<br>
+                        • Comparan con el compañero: ¿Qué noticia es más "roja" (subjetiva)?<br>
+                        <strong>CIERRE (10 min):</strong> Plenaria rápida: ¿Qué medios de comunicación locales parecen tener más opinión que hechos?
+                    </td>
+                    <td>Noticias impresas, Colores.</td>
+                </tr>
+                <!-- SESIÓN 3 -->
+                <tr>
+                    <td align="center"><strong>3</strong></td>
+                    <td>
+                        <strong>Objetivo:</strong> Identificar falacias lógicas.<br>
+                        <strong>INICIO (5 min):</strong> Definición de "Falacia". Ejemplos: <em>Ad Hominem, Generalización Apresurada</em>.<br>
+                        <strong>DESARROLLO (25 min):</strong><br>
+                        • Los alumnos crean un Mapa Conceptual rápido sobre tipos de falacias.<br>
+                        • Actividad Gamificada: Identificar falacias en frases polémicas leídas por el docente.<br>
+                        • Revisión de noticias para encontrar falacias.<br>
+                        <strong>CIERRE (10 min):</strong> Ticket de salida: Escribe un ejemplo de falacia escuchada recientemente.
+                    </td>
+                    <td>Ticket de salida.</td>
+                </tr>
+                <!-- SESIÓN 4 -->
+                <tr>
+                    <td align="center"><strong>4</strong></td>
+                    <td>
+                        <strong>Objetivo:</strong> Organización de Equipos.<br>
+                        <strong>INICIO (5 min):</strong> Explicación del Producto Final (Mesa Redonda). Formación de 6 equipos.<br>
+                        <strong>DESARROLLO (30 min):</strong><br>
+                        1. <strong>Sorteo de Temas:</strong> (Crisis del Agua, Gentrificación, Lenguas, Seguridad, etc.).<br>
+                        2. <strong>Asignación de Roles:</strong> Entrega de tarjetas (Moderador, Defensores, Críticos, Sintetizador, Interrogador).<br>
+                        3. Lectura exploratoria del tema asignado.<br>
+                        <strong>CIERRE (5 min):</strong> Entrega de hoja de registro de roles por equipo.
+                    </td>
+                    <td>Tarjetas de Roles.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- FASE 2 PRINT -->
+        <div style="background-color:#eee; padding:5px; font-weight:bold; border:1px solid #000; margin-top:5px;">FASE 2: CONSTRUCCIÓN (Andamiaje)</div>
+        <table>
+            <thead>
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="75%">Desarrollo de la Sesión</th>
+                    <th width="20%">Recursos/Eval</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- SESIÓN 5 -->
+                <tr>
+                    <td align="center"><strong>5</strong></td>
+                    <td>
+                        <strong>Objetivo:</strong> Construcción de Argumentos.<br>
+                        <strong>INICIO (5 min):</strong> Recordatorio estructura: Afirmación + Evidencia + Razonamiento.<br>
+                        <strong>DESARROLLO (25 min):</strong> Trabajo en equipos. Utilizan rutina <strong>"Afirmación - Soporte - Cuestionamiento"</strong>. Redactan 3 argumentos fuertes con datos reales (INEGI, ONU). Docente verifica fuentes.<br>
+                        <strong>CIERRE (10 min):</strong> Intercambio de borradores para co-evaluación entre pares.
+                    </td>
+                    <td>Ficha Argumentativa.</td>
+                </tr>
+                <!-- SESIÓN 6 -->
+                <tr>
+                    <td align="center"><strong>6</strong></td>
+                    <td>
+                        <strong>Objetivo:</strong> Taller de Oralidad.<br>
+                        <strong>INICIO (5 min):</strong> Proyección breve debate político (análisis corporal).<br>
+                        <strong>DESARROLLO (25 min):</strong> Ejercicios prácticos de pie.<br>
+                        1. <strong>Volumen/Dicción:</strong> Trabalenguas con lápiz.<br>
+                        2. <strong>Postura:</strong> Posición de Poder.<br>
+                        3. <strong>Frases Puente:</strong> Practicar "Entiendo tu punto, sin embargo..." para disentir con respeto.<br>
+                        <strong>CIERRE (10 min):</strong> Ronda rápida de frases usando puentes.
+                    </td>
+                    <td>Lista de cotejo oralidad.</td>
+                </tr>
+                <!-- SESIÓN 7 -->
+                <tr>
+                    <td align="center"><strong>7</strong></td>
+                    <td>
+                        <strong>Objetivo:</strong> Simulacro General.<br>
+                        <strong>INICIO (5 min):</strong> Organización de mobiliario (herradura).<br>
+                        <strong>DESARROLLO (30 min):</strong><br>
+                        • Mini-ensayos simultáneos de 5 minutos.<br>
+                        • Equipo piloto pasa al frente para dinámica real.<br>
+                        • Retroalimentación grupal técnica <strong>"Estrella y Deseo"</strong>.<br>
+                        <strong>CIERRE (5 min):</strong> Ajustes finales por equipo.
+                    </td>
+                    <td>Retroalimentación.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- FASE 3 PRINT -->
+        <div style="background-color:#eee; padding:5px; font-weight:bold; border:1px solid #000; margin-top:5px;">FASE 3: EJECUCIÓN (Evaluación Sumativa)</div>
+        <table>
+            <thead>
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="75%">Dinámica: 2 Mesas por sesión (15 min c/u) + Retroalimentación</th>
+                    <th width="20%">Recursos/Eval</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- SESIÓN 8 -->
+                <tr>
+                    <td align="center"><strong>8</strong></td>
+                    <td>
+                        <strong>Mesa 1 (15 min):</strong> "Nuevos estudiantes en la secundaria" (Integración vs. Recursos).<br>
+                        <strong>Mesa 2 (15 min):</strong> "Crisis del Agua y Sobrepoblación" (DDHH vs. Planeación).<br>
+                        <strong>Actividad Público (10 min):</strong> Identificar un argumento falaz y uno asertivo de cada mesa en ficha de escucha.
+                    </td>
+                    <td rowspan="3">
+                        Rúbrica Mesa Redonda.<br>
+                        Fichas de Escucha.<br>
+                        Portafolio.
+                    </td>
+                </tr>
+                <!-- SESIÓN 9 -->
+                <tr>
+                    <td align="center"><strong>9</strong></td>
+                    <td>
+                        <strong>Mesa 3 (15 min):</strong> "Gentrificación: ¿Barrio para quién?" (Modernización vs. Identidad).<br>
+                        <strong>Mesa 4 (15 min):</strong> "Empleo y Salarios en Monterrey".<br>
+                        <strong>Actividad Público (10 min):</strong> Anotar qué datos estadísticos se mencionaron y verificar fuentes.
+                    </td>
+                </tr>
+                <!-- SESIÓN 10 -->
+                <tr>
+                    <td align="center"><strong>10</strong></td>
+                    <td>
+                        <strong>Mesa 5 (15 min):</strong> "Lenguas Indígenas y Discriminación".<br>
+                        <strong>Mesa 6 (15 min):</strong> "Seguridad y Derechos Humanos".<br>
+                        <strong>CIERRE GENERAL (10 min):</strong> Reflexión final sobre el PDA: <em>¿Cómo el diálogo intercultural previene la violencia?</em>. Entrega de portafolio y rúbricas.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Firmas -->
+        <table style="margin-top: 30px; border: none;">
+            <tr style="border: none;">
+                <td style="border: none; text-align: center; padding-top: 40px;">__________________________<br>Docente</td>
+                <td style="border: none; text-align: center; padding-top: 40px;">__________________________<br>Coordinación</td>
+                <td style="border: none; text-align: center; padding-top: 40px;">__________________________<br>Dirección</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        function toggleDetails(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
